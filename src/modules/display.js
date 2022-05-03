@@ -10,7 +10,7 @@ const displayList = () => {
   listUl.innerHTML = null;
   let listText;
   const fragment = new DocumentFragment();
-  for (let i = 0; i < data.toDoArr.length; i += 1) {
+  data.toDoArr.forEach((element, i) => {
     const { description } = data.toDoArr[i];
     const { index } = data.toDoArr[i];
     const checkbox = document.createElement('input');
@@ -75,7 +75,7 @@ const displayList = () => {
     checkbox.addEventListener('input', (e) => {
       checkBoxValue(e);
     });
-  }
+  });
 };
 
 export default displayList;
