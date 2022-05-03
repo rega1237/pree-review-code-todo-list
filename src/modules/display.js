@@ -8,7 +8,7 @@ const displayList = () => {
   getFromLocal();
   const listUl = document.querySelector('.list-container');
   listUl.innerHTML = null;
-  let listText; 
+  let listText;
   for (let i = 0; i < data.toDoArr.length; i += 1) {
     const { description } = data.toDoArr[i];
     const { index } = data.toDoArr[i];
