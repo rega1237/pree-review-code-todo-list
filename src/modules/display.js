@@ -9,6 +9,7 @@ const displayList = () => {
   const listUl = document.querySelector('.list-container');
   listUl.innerHTML = null;
   let listText;
+  const fragment = new DocumentFragment();
   for (let i = 0; i < data.toDoArr.length; i += 1) {
     const { description } = data.toDoArr[i];
     const { index } = data.toDoArr[i];
@@ -30,9 +31,10 @@ const displayList = () => {
     textList.value = listText;
     iconDots.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
     iconDots.setAttribute('id', i + 1);
-    liWraper.append(checkbox);
-    liWraper.append(textList);
-    liWraper.append(iconDots);
+    fragment.append(checkbox);
+    fragment.append(textList);
+    fragment.append(iconDots);
+    liWraper.append(fragment);
     listElement.append(liWraper);
     listUl.append(listElement);
 
@@ -57,7 +59,6 @@ const displayList = () => {
     listElement.addEventListener('click', () => {
       iconLi.classList.toggle('fa-ellipsis-vertical');
       iconLi.classList.toggle('fa-trash');
-      // listElement.style.backgroundColor = 'rgba(254 231 97 / 63%)';
       listElement.classList.toggle('background-list');
       listElement.classList.toggle('transparent');
       textList.style.backgroundColor = 'transparent';
